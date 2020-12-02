@@ -1,7 +1,7 @@
 <?php
-include "../private/products_dbconn.php";
-include "layout/header.php";
-include "layout/component.php";
+include "components/database.php";
+include "components/header.php";
+include "components/layout_grid.php";
 
 date_default_timezone_set("Europe/Tallinn");
 
@@ -17,10 +17,9 @@ if (!array_key_exists("timestamp", $_SESSION)) {
 
   <div class="row text-center py-5">
     <?php
-    component("./img/product01.png", "AAA0001", "DVD-disk 1", "21", "700 Mb");
-    component("./img/product02.png", "AAA0002", "DVD-disk 2", "22", "700 Mb");
-    component("./img/product03.png", "AAA0003", "DVD-disk 3", "23", "700 Mb");
-    component("./img/product04.png", "AAA0004", "DVD-disk 4", "24", "700 Mb");
+    while($row=mysqli_fetch_assoc($result)){
+      component($row['SKU'], $row['name'], $row['price'], $row['img'], $row['type']);
+    }
     ?>
   </div>
 
@@ -38,4 +37,4 @@ if (!array_key_exists("timestamp", $_SESSION)) {
 
 <br>
 
-<?php include "layout/footer.php" ?>
+<?php include "components/footer.php" ?>
