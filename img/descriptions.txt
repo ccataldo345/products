@@ -26,3 +26,49 @@ ASIN: B08HQTMBBL
 SKU : DR-GC3G-JFCK
 Availability: In Stock
 €3.80
+
+https://www.linuxdvdcenter.com/index.php?route=product/product&path=25&product_id=55
+Android x86 9 .0 (32/64Bit)
+ASIN: B08HN5JLW9
+SKU : XT-9TCC-PBT3
+Availability: In Stock
+
+
+
+https://www.amazon.com/Learning-PHP-MySQL-JavaScript-Javascript/dp/1491978910/ref=sr_1_1?dchild=1&keywords=programming+books+php&qid=1607002589&sr=8-1
+Learning PHP, MySQL & JavaScript: With jQuery, CSS & HTML5 (Learning PHP, MYSQL, Javascript, CSS & HTML5) 5th Edition
+27.49
+
+https://www.amazon.com/SQL-QuickStart-Guide-Simplified-Manipulating/dp/1945051752/ref=sr_1_13?dchild=1&keywords=programming+books&qid=1607002558&sr=8-13
+SQL QuickStart Guide: The Simplified Beginner's Guide to Managing, Analyzing, and Manipulating Data With SQL Illustrated Edition
+23.74
+
+
+https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=sr_1_7?dchild=1&keywords=programming+books&qid=1607002558&sr=8-7
+Clean Code: A Handbook of Agile Software Craftsmanship 1st Edition
+42.31
+
+https://www.amazon.com/Programming-Manuscripts-Python-Beginners-Guide-ebook/dp/B07JHYGTQR/ref=sr_1_6?dchild=1&keywords=programming+books&qid=1607002558&sr=8-6
+Programming: 4 Manuscripts in 1 book : Python For Beginners - Python 3 Guide - Learn Java - Excel 2016 Kindle Edition
+47.97
+
+
+https://www.amazon.com/AmazonBasics-Computer-Storage-Controller-Headphone/dp/B07QV37J6B/ref=sr_1_48?crid=2C40CGA1Y67JP&dchild=1&keywords=computer+desk&qid=1607002913&sprefix=computer+%2Caps%2C303&sr=8-48
+Basics Gaming Computer Desk with Storage for Controller, Headphone & Speaker - Red
+82.73
+
+
+https://www.amazon.com/Soontrans-Computer-Ergonomic-Backrest-Adjustable/dp/B08K7CCMXD/ref=sr_1_25?dchild=1&keywords=computer+chair&qid=1607003026&sr=8-25
+Gaming Chair High Back Computer Chair of Racing Style Ergonomic Swivel Gamer Chair with Height and Backrest Recline Adjustable,Full Armrest, Footrest Headrest and Lumbar Pillow (Golden)
+142
+
+https://www.amazon.com/Clip-Light-Reading-Lights-Brightness/dp/B07WMRQQQ7/ref=sr_1_6?dchild=1&keywords=computer+lamp&qid=1607003126&sr=8-6
+Clip Light Reading Lights - QQAPPU 24 LED USB Desk Lamp with 3 Color Modes and 10 Brightness Dimmer ,360 ° Flexible Gooseneck Eye Protection Book Clamp Light, Bed Night Light with Memory Function
+16.99
+
+
+
+https://www.amazon.com/Flash-Furniture-Height-Adjustable-Computer/dp/B004G91RK8/ref=sr_1_6?dchild=1&keywords=computer+furniture&qid=1607003238&sr=8-6
+Flash Furniture Black Sit to Stand Mobile Laptop Computer Desk
+55.59
+
