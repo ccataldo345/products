@@ -1,4 +1,4 @@
-<footer>
+<footer class="mt-auto">
   <span class="text-muted">All Righrts reserved 2020 @Chris345</span>
 </footer>
 

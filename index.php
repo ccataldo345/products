@@ -10,31 +10,31 @@ if (!array_key_exists("timestamp", $_SESSION)) {
 }
 ?>
 
-<div class="container">
-  <p><small>⏱ You started visiting this page since <?= $_SESSION["timestamp"]; ?> (GMT+3) </small></p>
+<div class="container mt-3">
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="col-sm-8">
+      <a class="navbar-brand">Product List</a>
+    </div>
+    <div class="col-sm-4">
+      <div style="float:right">
+        <button class="btn btn-sm btn-success" type="submit" onclick="document.location='add.php'" style="display: inline-block; margin-right: 10px">ADD</button>
+        <button class="btn btn-sm btn-danger" type="submit" style="display: inline-block; margin-right: 10px">MASS
+          DELETE</button>
+      </div>
+    </div>
+  </nav>
 
-  <br>
+  <div class="container">
+    <p><small>⏱ You started visiting this page since <?= $_SESSION["timestamp"]; ?> (GMT+3) </small></p>
 
-  <div class="row text-center py-5">
-    <?php
-    while($row=mysqli_fetch_assoc($result)){
-      component($row['SKU'], $row['name'], $row['price'], $row['img'], $row['type']);
-    }
-    ?>
-  </div>
-
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
-      Type
-    </button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">DVD-disk</a>
-      <a class="dropdown-item" href="#">Book</a>
-      <a class="dropdown-item" href="#">Furniture</a>
+    <div class="row text-center py-5">
+      <?php
+      while ($row = mysqli_fetch_assoc($result)) {
+        products_grid($row['SKU'], $row['name'], $row['price'], $row['img'], $row['type']);
+      }
+      ?>
     </div>
   </div>
 </div>
-
-<br>
 
 <?php include "components/footer.php" ?>

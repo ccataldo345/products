@@ -8,41 +8,36 @@ $conn = new mysqli(DB_SERVER, DB_USER, DB_PASS);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully; ";
+// echo "Connected successfully; ";
 
+/*
 // Delete database
 $sql = "DROP DATABASE " . DB_NAME;
-if ($conn->query($sql) === TRUE) {
-  echo "Database is deleted successfully; ";  
-} else {  
+if ($conn->query($sql) === FALSE) {
   echo "Database is not deleted successfully\n";
-}  
+}
+// echo "Database is deleted successfully; ";  
+*/
 
 // Create database
 $sql = "CREATE DATABASE IF NOT EXISTS " . DB_NAME;
-if ($conn->query($sql) === TRUE) {
-  echo "Database created successfully; ";
-} else {
+if ($conn->query($sql) === FALSE) {
   echo "Error creating database: " . $conn->error;
-}
+} 
+//echo "Database created successfully; ";
 
 // Select database
 // mysqli_select_db($conn, DB_NAME);
 $conn->select_db(DB_NAME);
 
-if ($result = $conn->query("SELECT DATABASE()")) {
-  $row = $result->fetch_row();
-  printf("Default database is %s.\n", $row[0]);
-  $result->close();
-}
-
+/*
 // Delete table
 $sql = "DROP TABLE " . PRODUCTS_TABLE;
-if ($conn->query($sql) === TRUE) {
-  echo "Table is deleted successfully; ";  
-} else {  
-  echo "Table is not deleted successfully\n";
-}  
+if ($conn->query($sql) === FALSE) {
+  echo "Table is not deleted successfully\n";  
+} 
+// echo "Table is deleted successfully; "; 
+*/
 
 // Create table
 $sql = "CREATE TABLE IF NOT EXISTS " . PRODUCTS_TABLE . "(
@@ -54,12 +49,12 @@ $sql = "CREATE TABLE IF NOT EXISTS " . PRODUCTS_TABLE . "(
   type INT
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-if ($conn->query($sql) === TRUE) {
-  echo "Table PRODUCTS_TABLE created successfully; ";
-} else {
+if ($conn->query($sql) === FALSE) {
   echo "Error creating table: " . $conn->error;
 }
+// echo "Table PRODUCTS_TABLE created successfully; ";
 
+/*
 $sql = "INSERT INTO " . PRODUCTS_TABLE . "(SKU, name, price, img, type)
   VALUES
   ('JVC200123', 'Chrome CR OS 2.4.1290', 20.00, 'img/product01.png', 1),
@@ -76,11 +71,11 @@ $sql = "INSERT INTO " . PRODUCTS_TABLE . "(SKU, name, price, img, type)
   ('TR120555', 'Flash Furniture Black Sit', 55.59, 'img/product12.png', 3)
   ";
 
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully; ";
-} else {
+if ($conn->query($sql) === FALSE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
+// echo "New record created successfully; ";
+*/
 
 // Select all from database
 $sql = "SELECT * FROM " . PRODUCTS_TABLE;
