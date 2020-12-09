@@ -1,5 +1,11 @@
 <?php
-include "../private/products_dbconn.php";
+include($_SERVER["DOCUMENT_ROOT"] . "/private/dbconn.php");
+
+define("DB_NAME", "productsDB");
+define("PRODUCTS_TABLE", "products");
+define("DVD_TABLE", "dvd");
+define("BOOK_TABLE", "book");
+define("FURNITURE_TABLE", "furniture");
 
 // Create connection
 $conn = new mysqli(DB_SERVER, DB_USER, DB_PASS);
@@ -40,7 +46,7 @@ if ($conn->query($sql) === FALSE) {
 */
 
 // Create table
-$sql = "CREATE TABLE IF NOT EXISTS " . PRODUCTS_TABLE . "(
+$sql = "CREATE TABLE IF NOT EXISTS " . PRODUCTS_TABLE . " (
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   SKU VARCHAR(9) NOT NULL,
   name VARCHAR(128) NOT NULL,
@@ -55,7 +61,7 @@ if ($conn->query($sql) === FALSE) {
 // echo "Table PRODUCTS_TABLE created successfully; ";
 
 /*
-$sql = "INSERT INTO " . PRODUCTS_TABLE . "(SKU, name, price, img, type)
+$sql = "INSERT INTO " . PRODUCTS_TABLE . " (SKU, name, price, img, type)
   VALUES
   ('JVC200123', 'Chrome CR OS 2.4.1290', 20.00, 'img/product01.png', 1),
   ('JVC200123', 'Ubuntu Cinamon Remix 20.10 LTS', 25.99, 'img/product02.png', 1),
@@ -70,6 +76,7 @@ $sql = "INSERT INTO " . PRODUCTS_TABLE . "(SKU, name, price, img, type)
   ('TR120555', 'Clip Light Reading', 16.99, 'img/product11.png', 3),
   ('TR120555', 'Flash Furniture Black Sit', 55.59, 'img/product12.png', 3)
   ";
+$sql = "ALTER TABLE " . PRODUCTS_TABLE . " AUTO_INCREMENT=13";
 
 if ($conn->query($sql) === FALSE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
