@@ -43,7 +43,7 @@ if (!array_key_exists("timestamp", $_SESSION)) {
               $conn->query($delete_product);
             }
           }
-          //$conn->close();
+          $conn->close();
           header("Location:index.php");
         }
       }
