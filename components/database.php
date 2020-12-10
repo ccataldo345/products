@@ -33,7 +33,7 @@ if ($conn->query($sql) === FALSE) {
 //echo "Database created successfully; ";
 
 // Select database
-// mysqli_select_db($conn, DB_NAME);
+// mysqli_select_db($conn, DB_NAME); // CC: NO OOP
 $conn->select_db(DB_NAME);
 
 /*
@@ -76,12 +76,13 @@ $sql = "INSERT INTO " . PRODUCTS_TABLE . " (SKU, name, price, img, type)
   ('TR120555', 'Clip Light Reading', 16.99, 'img/product11.png', 3),
   ('TR120555', 'Flash Furniture Black Sit', 55.59, 'img/product12.png', 3)
   ";
-$sql = "ALTER TABLE " . PRODUCTS_TABLE . " AUTO_INCREMENT=13";
 
 if ($conn->query($sql) === FALSE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 // echo "New record created successfully; ";
+
+$sql = "ALTER TABLE " . PRODUCTS_TABLE . " AUTO_INCREMENT=13";
 */
 
 // Select all from database

@@ -18,8 +18,11 @@ if (!array_key_exists("timestamp", $_SESSION)) {
     <div class="col-sm-4">
       <div style="float:right">
         <button class="btn btn-sm btn-success" type="submit" onclick="document.location='add.php'" style="display: inline-block; margin-right: 10px">ADD</button>
-        <button class="btn btn-sm btn-danger" type="submit" style="display: inline-block; margin-right: 10px">MASS
-          DELETE</button>
+        <form method="post" action="" id="delete_form" style="display: inline-block; margin-right: 10px">
+          <button class="btn btn-sm btn-danger" type="submit" name="but_delete">
+            MASS DELETE
+          </button>
+        </form>
       </div>
     </div>
   </nav>
@@ -30,7 +33,19 @@ if (!array_key_exists("timestamp", $_SESSION)) {
     <div class="row text-center py-5">
       <?php
       while ($row = mysqli_fetch_assoc($result)) {
-        products_grid($row['SKU'], $row['name'], $row['price'], $row['img'], $row['type']);
+        products_grid($row['id'], $row['SKU'], $row['name'], $row['price'], $row['img'], $row['type']);
+        if (isset($_POST["but_delete"])) {
+          $conn = new mysqli(DB_SERVER, DB_USER, DB_PASS);
+          $conn->select_db(DB_NAME);
+          if (isset($_POST["delete"])) {
+            foreach ($_POST["delete"] as $deleteid) {
+              $delete_product = "DELETE from " . PRODUCTS_TABLE . " WHERE id=" . $deleteid;
+              $conn->query($delete_product);
+            }
+          }
+          //$conn->close();
+          header("Location:index.php");
+        }
       }
       ?>
     </div>
