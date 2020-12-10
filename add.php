@@ -70,11 +70,19 @@ if (isset($_POST["save"])) {
   $target_dir = "img/";
   $target_file = $target_dir . basename($_FILES["img"]["name"]);
   $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-  // echo $target_file;
-  if (move_uploaded_file($_FILES["img"]["name"], $target_file)) {
-    echo "";  
-  } else {
-    echo "Sorry, there was an error uploading your file.";
+  $uploadOk = 1;
+
+  // Check file size
+  if ($_FILES["fileToUpload"]["size"] > 500000) {
+    echo "Sorry, your file is too large.";
+    $uploadOk = 0;
+  }
+
+  if ($uploadOk == 1) {
+    if (!move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+      echo "Sorry, there was an error uploading your file. ";
+      echo $_FILES['img']['error'];
+    }
   }
 
   // prepare and bind
@@ -87,16 +95,16 @@ if (isset($_POST["save"])) {
   $sku = $_POST['sku'];
   $name = $_POST['name'];
   $price = $_POST['price'];
-  $img = $_FILES['img']['name'];
+  $img = "img/" . $_FILES['img']['name'];
   $type = $_POST['type'];
 
   if (!$stmt->execute()) {
-      die("Execute failed: (" . $stmt->errno . ") " . $stmt->error);
-    }
+    die("Execute failed: (" . $stmt->errno . ") " . $stmt->error);
+  }
 
   $stmt->close();
   $conn->close();
-  // header("Location:index.php");
+  header("Location:index.php");
 }
 ?>
 
