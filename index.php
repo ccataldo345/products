@@ -2,11 +2,18 @@
 include "components/database.php";
 include "components/header.php";
 include "components/layout_grid.php";
+include "components/resetDB.php";
 
 date_default_timezone_set("Europe/Tallinn");
 
 if (!array_key_exists("timestamp", $_SESSION)) {
   $_SESSION["timestamp"] = date('l jS \of F Y H:i:s');
+}
+?>
+
+<?php 
+if (isset($_POST["resetDB"])) {
+  resetDB();
 }
 ?>
 
@@ -18,10 +25,13 @@ if (!array_key_exists("timestamp", $_SESSION)) {
     <div class="col-sm-4">
       <div style="float:right">
         <button class="btn btn-sm btn-success" type="submit" onclick="document.location='add.php'" style="display: inline-block; margin-right: 10px">ADD</button>
-        <form method="post" action="" id="delete_form" style="display: inline-block; margin-right: 10px">
+        <form method="post" id="delete_form" style="display: inline-block; margin-right: 10px">
           <button class="btn btn-sm btn-danger" type="submit" name="but_delete">
             MASS DELETE
           </button>
+        </form>
+        <form method="post" action="index.php" style="display: inline-block; margin-right: 10px">
+          <button class="btn btn-sm btn-warning" type="submit" name="resetDB">RESET</button>
         </form>
       </div>
     </div>
@@ -41,6 +51,13 @@ if (!array_key_exists("timestamp", $_SESSION)) {
             foreach ($_POST["delete"] as $deleteid) {
               $delete_product = "DELETE from " . PRODUCTS_TABLE . " WHERE id=" . $deleteid;
               $conn->query($delete_product);
+              /* delete img from server folder
+              $product_img = "SELECT img FROM " . PRODUCTS_TABLE . " WHERE id=" . $deleteid;
+              $conn->query($product_img);
+              $aaa = mysqli_fetch_assoc($conn->query($product_img));
+              echo $aaa;
+              unlink(mysqli_fetch_assoc($conn->query($product_img)));
+              */
             }
           }
           $conn->close();
