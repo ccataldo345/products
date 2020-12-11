@@ -1,8 +1,7 @@
 <?php
-include "components/database.php";
 
-function resetDB()
-{
+if (isset($_POST["resetDB"])) {
+
   $conn = new mysqli(DB_SERVER, DB_USER, DB_PASS);
   $conn->select_db(DB_NAME);
 
@@ -47,8 +46,9 @@ function resetDB()
   }
 
   $sql = "ALTER TABLE " . PRODUCTS_TABLE . " AUTO_INCREMENT=13";
-  
+
   $conn->close();
-  
+
   header("Refresh:0");
+  
 }

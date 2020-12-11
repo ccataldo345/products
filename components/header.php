@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+date_default_timezone_set("Europe/Tallinn");
+if (!array_key_exists("timestamp", $_SESSION)) {
+  $_SESSION["timestamp"] = date('l jS \of F Y H:i:s');
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,7 +16,7 @@ session_start();
   <title>Product list</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
-  <script src='main.js'></script>
+  <script src='js/main.js'></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 

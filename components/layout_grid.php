@@ -1,5 +1,9 @@
 <?php
 
+while ($row = mysqli_fetch_assoc($result)) {
+  products_grid($row['id'], $row['SKU'], $row['name'], $row['price'], $row['img'], $row['type']);
+}
+
 function products_grid($id, $product_SKU, $product_name, $product_price, $product_image, $product_type)
 {
   $element = "
