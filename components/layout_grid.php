@@ -1,10 +1,10 @@
 <?php
 
 while ($row = mysqli_fetch_assoc($result)) {
-  products_grid($row['id'], $row['SKU'], $row['name'], $row['price'], $row['img'], $row['type']);
+  products_grid($row['product_id'], $row['SKU'], $row['name'], $row['price'], $row['img'], $row['type']);
 }
 
-function products_grid($id, $product_SKU, $product_name, $product_price, $product_image, $product_type)
+function products_grid($product_id, $product_SKU, $product_name, $product_price, $product_image, $product_type)
 {
   $element = "
   <div class='col-md-3 col-sm-6 my-3 my-md-0'>
@@ -18,7 +18,7 @@ function products_grid($id, $product_SKU, $product_name, $product_price, $produc
             <h5 class='card-text'>$product_price  $</h5>
             <h5 class='card-text'>$product_type</h5>
             <div class='form-check'>
-              <input class='form-check-input' type='checkbox' form='delete_form' name='delete[]' value='$id' id='defaultCheck1'>
+              <input class='form-check-input' type='checkbox' form='delete_form' name='delete[]' value='$product_id' id='defaultCheck1'>
               <label class='form-check-label' for='defaultCheck1'>
                 Select
               </label>

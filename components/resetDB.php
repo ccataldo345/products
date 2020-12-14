@@ -3,22 +3,29 @@
 if (isset($_POST["resetDB"])) {
 
   $conn = new mysqli(DB_SERVER, DB_USER, DB_PASS);
-  $conn->select_db(DB_NAME);
-
-  // Delete table
-  $sql = "DROP TABLE " . PRODUCTS_TABLE;
+  
+  $sql = "DROP DATABASE IF EXISTS " . DB_NAME;
   if ($conn->query($sql) === FALSE) {
-    echo "Table is not deleted successfully\n";
+    echo "Error deleting database: " . $conn->error;
   }
 
+  // Create database
+  $sql = "CREATE DATABASE IF NOT EXISTS " . DB_NAME;
+  if ($conn->query($sql) === FALSE) {
+    echo "Error creating database: " . $conn->error;
+  }
+
+  $conn->select_db(DB_NAME);
+
   // Create table
-  $sql = "CREATE TABLE " . PRODUCTS_TABLE . " (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  $sql = "CREATE TABLE IF NOT EXISTS " . PRODUCTS_TABLE . " (
+    product_id INT AUTO_INCREMENT,
     SKU VARCHAR(9) NOT NULL,
     name VARCHAR(128) NOT NULL,
     price DECIMAL(10,2) NOT NULL,
     img VARCHAR(255),
-    type INT
+    type INT,
+    PRIMARY KEY (product_id)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
   if ($conn->query($sql) === FALSE) {

@@ -5,10 +5,11 @@ if (isset($_POST["but_delete"])) {
   $conn->select_db(DB_NAME);
   if (isset($_POST["delete"])) {
     foreach ($_POST["delete"] as $deleteid) {
-      $delete_product = "DELETE from " . PRODUCTS_TABLE . " WHERE id=" . $deleteid;
+      $delete_product = "DELETE from " . PRODUCTS_TABLE . " WHERE product_id=" . $deleteid;
+      echo $delete_product;
       $conn->query($delete_product);
       /* delete img from server folder
-      $product_img = "SELECT img FROM " . PRODUCTS_TABLE . " WHERE id=" . $deleteid;
+      $product_img = "SELECT img FROM " . PRODUCTS_TABLE . " WHERE product_id=" . $deleteid;
       $conn->query($product_img);
       $aaa = mysqli_fetch_assoc($conn->query($product_img));
       echo $aaa;
