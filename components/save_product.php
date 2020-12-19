@@ -33,7 +33,7 @@ if (isset($_POST["save"])) {
   $weight = $_POST['weight'];
   $height = $_POST['height'];
   $width = $_POST['width'];
-  $lenght = $_POST['lenght'];
+  $length = $_POST['length'];
   
   $stmt = $conn->prepare("INSERT INTO " . PRODUCTS_TABLE . " (SKU, name, price, img, type) VALUES (?, ?, ?, ?, ?)");
   if (!$stmt) die("Prepare failed: (" . $conn->errno . ") " . $conn->error);
@@ -62,7 +62,7 @@ if (isset($_POST["save"])) {
       $new_type = "furnitures";
       $stmt = $conn->prepare("INSERT INTO " .$new_type . " VALUES (?, ?, ?, ?)");
       if (!$stmt) die("Prepare failed: (" . $conn->errno . ") " . $conn->error);
-      $stmt->bind_param("iddd", $product_id, $height, $width, $lenght);
+      $stmt->bind_param("iddd", $product_id, $height, $width, $length);
       break;
   }
   if (!$stmt->execute()) {

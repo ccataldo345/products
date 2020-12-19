@@ -69,12 +69,12 @@ CREATE TABLE IF NOT EXISTS furnitures (
   product_id INT NOT NULL,
   height INT,
   width INT,
-  lenght INT,
+  length INT,
   FOREIGN KEY (product_id) REFERENCES products (product_id)
     ON DELETE CASCADE
 );
 
-INSERT INTO furnitures (product_id, height, width, lenght)
+INSERT INTO furnitures (product_id, height, width, length)
 VALUES
 (9, 120, 120, 120),
 (10, 150, 60, 60),

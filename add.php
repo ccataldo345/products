@@ -49,14 +49,15 @@ include "components/save_product.php"
       <div class="form-group row">
         <label for="typeswitcher" class="col-sm-3 col-form-label">Type Switcher</label>
         <div class="col-sm-5">
-          <select class="form-control" name="type">
-            <option selected>Type Switcher</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
+          <select class="form-control" name="type" id="type_switcher" onchange='if(this.value != 0) { this.form.submit(); }'>
+            <option selected>3</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
           </select>
         </div>
       </div>
+      <?php include "components/type_switcher.php" ?>
     </form>
   </div>
 </div>

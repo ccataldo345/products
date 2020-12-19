@@ -14,6 +14,6 @@ if (isset($_POST["resetDB"])) {
 
   $conn->close();
 
-  header("Refresh:0");
+  header("Refresh:2");
   
 }

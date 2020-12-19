@@ -19,13 +19,17 @@ if ($conn->connect_error) {
 // mysqli_select_db($conn, DB_NAME); // CC: NO OOP
 $conn->select_db(DB_NAME);
 
-// Select all from database
-$sql = "SELECT * FROM " . PRODUCTS_TABLE;
-
-if ($conn->query($sql) === FALSE) {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
+$sql = "SELECT products.product_id, SKU, name, price, img, size, weight, height, width, length
+FROM  products
+LEFT JOIN dvds ON products.product_id = dvds.product_id
+LEFT JOIN books ON products.product_id = books.product_id
+LEFT JOIN furnitures ON products.product_id = furnitures.product_id
+ORDER BY products.product_id;";
 
 $result = $conn->query($sql);
+
+if ($result === FALSE) {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
 $conn->close();

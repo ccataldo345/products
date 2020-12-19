@@ -42,9 +42,9 @@ if (isset($_POST["type"])) {
         </div>
       </div>
       <div class='form-group row'>
-        <label for='lenght' class='col-sm-2 col-form-label'>Length (cm)</label>
+        <label for='length' class='col-sm-2 col-form-label'>Length (cm)</label>
         <div class='col-sm-6'>
-          <input class='form-control' type='number' min='1' max='200' step='1' name='lenght'>
+          <input class='form-control' type='number' min='1' max='200' step='1' name='length'>
         </div>
       </div>
       <p>Please provide the dimensions of the furniture in HxWxL.</p> 

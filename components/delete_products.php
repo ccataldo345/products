@@ -6,7 +6,6 @@ if (isset($_POST["but_delete"])) {
   if (isset($_POST["delete"])) {
     foreach ($_POST["delete"] as $deleteid) {
       $delete_product = "DELETE from " . PRODUCTS_TABLE . " WHERE product_id=" . $deleteid;
-      echo $delete_product;
       $conn->query($delete_product);
       /* delete img from server folder
       $product_img = "SELECT img FROM " . PRODUCTS_TABLE . " WHERE product_id=" . $deleteid;
