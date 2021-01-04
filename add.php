@@ -49,8 +49,8 @@ include "components/save_product.php"
       <div class="form-group row">
         <label for="typeswitcher" class="col-sm-3 col-form-label">Type Switcher</label>
         <div class="col-sm-5">
-          <select class="form-control" name="type" id="type_switcher" onchange='if(this.value != 0) { this.form.submit(); }'>
-            <option selected>3</option>
+          <select class="form-control" name="type" id="type_switcher" onchange=this.form.submit();>
+            <option selected><?php if (isset($_POST["type"])) { $type = $_POST["type"]; echo $type;} else echo "Type Switcher"; ?></option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
